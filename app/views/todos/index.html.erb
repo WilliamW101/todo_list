@@ -1,0 +1,16 @@
+<h1> Todo List </h1>
+<hr />
+
+<ol>
+  <% @todo.each do |todo| %>
+    <li>
+      <%= todo.item %>
+      <%= link_to 'Show', todo_path(todo) %>
+      <%= link_to 'Edit', edit_todo_path(todo) %>
+      <%= link_to 'Delete', todo_path(todo), method: :delete,
+          data: {confirm: 'Delete this item?'} %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'New Todo Item', new_todo_path %>
